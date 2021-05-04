@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Application météo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/meteo.css">
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <div class="col border rounded bg-primary ">
+          <input class="btn border rounded bg-warning" id="envoi" type="submit" value="Avoir la météo" onclick="buttonClickGET()">
+          <span id="ville"></span>
+          <input type="text" name="" value="" class="border rounded" id="champ">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4 border rounded">
+          <i class="wi"></i>
+          <span class="temp"></span>
+        </div>
+      </div>
+    </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="js/meteo.js"></script>
+  </body>
+</html>
