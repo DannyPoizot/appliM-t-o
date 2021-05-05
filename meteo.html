@@ -10,10 +10,16 @@
 
     <div class="container">
       <div class="row">
-        <div class="col border rounded bg-primary ">
-          <input class="btn border rounded bg-warning" id="envoi" type="submit" value="Avoir la météo" onclick="buttonClickGET()">
-          <span id="ville"></span>
-          <input type="text" name="" value="" class="border rounded" id="champ">
+        <div class="col border rounded bg-primary">
+          <form>
+            <div class="row">
+              <div class="col border rounded">
+                <input class="btn border rounded bg-warning" id="envoi" type="submit" value="Avoir la météo" onclick="buttonClickGET()">
+                <span id="ville"></span>
+                <input type="text" class="border rounded" id="champ">
+              </div>
+            </div>
+          </form>
         </div>
       </div>
       <div class="row">
@@ -23,8 +29,7 @@
         </div>
       </div>
     </div>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
   <script src="js/meteo.js"></script>
   </body>
 </html>
