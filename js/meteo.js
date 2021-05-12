@@ -24,17 +24,17 @@
       console.log(weatherDesc);
       windDeg = data.wind.deg;
       console.log(windDeg);
-      windSpeed = data.wind.speed;
+      windSpeed = data.wind.speed ? (data.wind.speed * 3.6).toFixed(0) : "N/A";
       console.log(windSpeed);
       console.log(data);
       console.log(city);
       temp = data.main.temp.toFixed(0);
-      $("<span></span>").text("Humidité : " + humidity + "%").appendTo("form");
-      $("<span></span>").text("\nPression : " + pressure + "hp").appendTo("form");
-      $("<span></span>").text("\n" + weatherDesc).appendTo("form");
-      $("<span></span>").text("\nOrientation du vent : " + windDeg + "°").appendTo("form");
-      $("<span></span>").text("\nVitesse du vent : " + windSpeed + " km/h").appendTo("form");
-      $(".wi").text(weatherIcon);
+      $(".humidity").text("Humidité : " + humidity + "%");
+      $(".pressure").text("\nPression : " + pressure + "hp");
+      $(".description").text(weatherDesc);
+      $(".windDeg").text("Orientation du vent : " + windDeg + "°");
+      $(".windSpeed").text("Vitesse du vent : " + windSpeed + " km/h");
+      $(".wi").attr("src", "http://www.openweathermap.org/img/wn/"+weatherIcon+".png");
       $(".temp").text("Température : " + temp + " ℃");
       $("#ville").text(city);
     });
@@ -43,6 +43,7 @@
   $("#champ").on("click", function() {
       $(this).val("");
         champ = "";
+
     });
   $("#envoi").submit(function() {
     if (~champ.indexOf(",")) champ = "";
