@@ -1,18 +1,19 @@
   function getLocation() {
-    $.get("https://ipapi.co/81.49.236.70/json/", function(data) {
-        buttonClickGET(data.city);
-        console.log(data.city);
+    $.get("https://ipapi.co/81.49.236.70/json/", function (data) {
+      buttonClickGET(data.city);
+      console.log(data.city);
     });
   };
+
   function buttonClickGET(city) {
     var api = "https://api.openweathermap.org/data/2.5/weather?q=";
     console.log(api);
-    var  appid = "&APPID=c21a75b667d6f7abb81f118dcf8d4611";
+    var appid = "&APPID=c21a75b667d6f7abb81f118dcf8d4611";
     console.log(appid);
     var units = "&units=metric";
     var lang = "&lang=fr";
     var http = api + city + units + lang + appid;
-    $.get(http, function(data) {
+    $.get(http, function (data) {
       city = data.name;
       humidity = data.main.humidity;
       console.log(humidity);
@@ -34,42 +35,43 @@
       $(".description").text(weatherDesc);
       $(".windDeg").text("Orientation du vent : " + windDeg + "°");
       $(".windSpeed").text("Vitesse du vent : " + windSpeed + " km/h");
-      $(".wi").attr("src", "http://www.openweathermap.org/img/wn/"+weatherIcon+".png");
+      $(".wi").attr("src", "http://www.openweathermap.org/img/wn/" + weatherIcon + ".png");
       $(".temp").text("Température : " + temp + " ℃");
       $("#ville").text(city);
     });
   };
   let champ;
-  $("#champ").on("click", function() {
-      $(this).val("");
-        champ = "";
+  $("#champ").on("click", function () {
+    $(this).val("");
+    champ = "";
 
-    });
-  $("#envoi").submit(function() {
-    if (~champ.indexOf(",")) champ = "";
-      buttonClickGET(champ);
-      return false;
-    });
-    getLocation();
-
-  window.onkeyup = keyup;
-function keyup(e) {
-  //setting your input text to the global Javascript Variable for every key press
-  champ = e.target.value;
-  if (e.keyCode == 13) {
-    console.log(champ);
+  });
+  $("#envoi").submit(function () {
     if (~champ.indexOf(",")) champ = "";
     buttonClickGET(champ);
+    return false;
+  });
+  getLocation();
+
+  window.onkeyup = keyup;
+
+  function keyup(e) {
+    //setting your input text to the global Javascript Variable for every key press
+    champ = e.target.value;
+    if (e.keyCode == 13) {
+      console.log(champ);
+      if (~champ.indexOf(",")) champ = "";
+      buttonClickGET(champ);
+    }
   }
-}
-$(document).ready(function() {
-    $("#champ").on("click", function() {
+  $(document).ready(function () {
+    $("#champ").on("click", function () {
       $(this).val("");
       champ = "";
     });
-    $("form").submit(function() {
+    $("form").submit(function () {
       if (~champ.indexOf(",")) champ = "";
       buttonClickGET(champ);
       return false;
     });
-});
+  });
